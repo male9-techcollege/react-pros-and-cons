@@ -1,0 +1,94 @@
+/* This is an addition to the styling in index.css, which also uses :root. 
+The styling in this file can override the styling in the latter file. */
+/* Maybe TO DO: add a button to switch colour theme (this is made possible by CSS in index.css). */
+:root {
+  /* Primary colour */
+  --clr-react-blue: #61DBFB; 
+  /* Secondary colour: purple colour for links before rollover effects in index.css */
+  --clr-vites-default-purple: #646cff;
+  /* Accent colour (complementary colour of secondary colour) */
+  --clr-accent: rgb(202, 202, 15); 
+
+  font-size: 18px;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* Maybe TO DO: if I do the bonus part of the assignment and add a navbar, and if I add it as a 4th child of body,
+  I will need to add an auto at the beginning. */
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* #root is a div in the index.html file */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* .logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+} */
+
+.pro-con-grid-by-marie-pierre-lessard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+  padding: 2em;
+}
+
+.card .ol-by-marie-pierre-lessard {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .5rem;
+
+  text-align: left;
+}
+
+.foreign-lang-by-marie-pierre-lessard {
+  font-style: italic;
+}
+
+.react-blue-by-marie-pierre-lessard {
+  /* "The hex code of the React Logo is #61DBFB. The RGB equivalent is (97, 219, 251)." 
+  https: //www.schemecolor.com/react-logo-colors.php */
+  color: var(--clr-react-blue);
+}
+
+.accent-clr-by-marie-pierre-lessard {
+  color: var(--clr-accent);
+}
+
+.read-the-docs {
+  font-size: 1rem;
+  color: #888;
+}
