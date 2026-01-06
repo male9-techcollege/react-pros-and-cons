@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { GlobalHeaderByMariePierreLessard } from "./components/g-header/g-header";
 import { MainByMariePierreLessard } from "./components/main-tag/main-tag";
 import { GlobalFooterByMariePierreLessard } from "./components/g-footer/g-footer";
