@@ -1,0 +1,23 @@
+/* This file is not called something.module.scss, so it can only be imported in SCSS files. 
+It could also be called typography.scss, i.e. the underscore isn't necessary here,
+but I like to stick to the SCSS convention. */
+
+/* See also :root styling in file app.css; 
+(I did not move the base font size to this partial because I could forget where I put various :root selectors in future assignments.) */
+@use "./colors.module" as *;
+
+/* #region First day's assignments */
+/* The 2 following classes are from the first day's assignments. 
+I replaced the hyphens by camel case because spaces are inserted when cutting and pasting,
+and an arithmetic error is thrown !
+The second day's assignment requires me to create additional classes (2 per component). */
+.reactBlueByMariePierreLessard {
+    color: $clr-react-blue;
+    font-weight: 700;
+}
+
+.accentClrByMariePierreLessard {
+    color: $clr-accent;
+}
+
+/* #endregion */

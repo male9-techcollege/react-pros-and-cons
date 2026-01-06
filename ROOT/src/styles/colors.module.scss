@@ -1,0 +1,13 @@
+/* See course notes from master class in folder react-mc-med-kasper */
+/* This file is called a something.module.scss because I used to have classes in here, not just variables. */
+
+/* The primary and secondary colours (black and white respectively) are Vite's defaults. 
+The following are three accent colours, React blue being the most used. */
+/* "The hex code of the React Logo is #61DBFB. The RGB equivalent is (97, 219, 251)." 
+https: //www.schemecolor.com/react-logo-colors.php */
+$clr-react-blue: #61DBFB;
+/* Purple colour for links before rollover effects in index.css */
+$clr-vites-default-purple: #646cff;
+/* Accent colour (complementary colour of Vite's default purple) */
+$clr-accent: rgb(202, 202, 15);
+

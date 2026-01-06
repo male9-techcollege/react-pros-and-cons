@@ -1,0 +1,8 @@
+/* This module is to import stuff from the partial into .tsx files. 
+I could just have @used the file called something.module.scss in .scss files, 
+but it is good to remember that this is possible. 
+
+For some reason, it is necessary to include "as *".
+*/
+
+@use "./typography" as *;

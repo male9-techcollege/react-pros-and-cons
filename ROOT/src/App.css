@@ -1,14 +1,7 @@
+/* Maybe TO DO: add a button to switch colour theme (this is made possible by CSS in index.css). */
 /* This is an addition to the styling in index.css, which also uses :root. 
 The styling in this file can override the styling in the latter file. */
-/* Maybe TO DO: add a button to switch colour theme (this is made possible by CSS in index.css). */
 :root {
-  /* Primary colour */
-  --clr-react-blue: #61DBFB; 
-  /* Secondary colour: purple colour for links before rollover effects in index.css */
-  --clr-vites-default-purple: #646cff;
-  /* Accent colour (complementary colour of secondary colour) */
-  --clr-accent: rgb(202, 202, 15); 
-
   font-size: 18px;
 }
 
@@ -57,38 +50,3 @@ body {
   }
 } */
 
-.pro-con-grid-by-marie-pierre-lessard {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.card {
-  padding: 2em;
-}
-
-.card .ol-by-marie-pierre-lessard {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: .5rem;
-
-  text-align: left;
-}
-
-.foreign-lang-by-marie-pierre-lessard {
-  font-style: italic;
-}
-
-.react-blue-by-marie-pierre-lessard {
-  /* "The hex code of the React Logo is #61DBFB. The RGB equivalent is (97, 219, 251)." 
-  https: //www.schemecolor.com/react-logo-colors.php */
-  color: var(--clr-react-blue);
-}
-
-.accent-clr-by-marie-pierre-lessard {
-  color: var(--clr-accent);
-}
-
-.read-the-docs {
-  font-size: 1rem;
-  color: #888;
-}

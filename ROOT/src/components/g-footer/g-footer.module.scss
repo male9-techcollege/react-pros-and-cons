@@ -1,0 +1,27 @@
+@use "../../styles/sizes" as *;
+/* DONE:
+Opgave: Du skal skrive minimum to css klasser til hvert komponent. */
+/* See course notes from master class in folder react-mc-med-kasper */
+
+/* #region First day's assignments */
+/* The following styling is Vite's defaults (used in first day's assignments). 
+I replaced the hyphens by camel case because spaces are inserted when cutting and pasting, and an arithmetic error is thrown!
+The second day's assignment requires me to create additional classes (2 per component). */
+.readTheDocs {
+    font-size: $single-rem;
+    color: #888;
+}
+/* #endregion */
+
+.globalFooterGridByMariePierreLessard {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: $golden-ratio-in-rems;
+    padding: $golden-ratio-in-rems;
+}
+
+.globalFooterLogoByMariePierreLessard {
+    justify-self: center;
+    height: $gr-rems-cubed;
+}
