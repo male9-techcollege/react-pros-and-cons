@@ -1,0 +1,29 @@
+@use "./sizes" as *;
+
+/* reset-list and a portion of horizontal-list are taken from https: //sass-lang.com/documentation/at-rules/mixin */
+@mixin resetListByMariePierreLessard {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+@mixin horizontalListByMariePierreLessard {
+    @include resetListByMariePierreLessard;
+
+    display: flex;
+    flex-direction: row;
+    gap: $half-gr-rems;
+}
+
+@mixin verticalListByMariePierreLessard {
+    @include resetListByMariePierreLessard;
+
+    display: flex;
+    flex-direction: column;
+    gap: $half-gr-rems;
+}
+
+@mixin oneColGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+}

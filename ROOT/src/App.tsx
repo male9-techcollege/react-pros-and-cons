@@ -1,5 +1,6 @@
 import "./App.scss";
 import { GlobalHeaderByMariePierreLessard } from "./components/g-header/g-header";
+import { MainNavByMariePierreLessard } from "./components/main-nav/main-nav";
 import { MainByMariePierreLessard } from "./components/main-tag/main-tag";
 import { GlobalFooterByMariePierreLessard } from "./components/g-footer/g-footer";
 
@@ -14,6 +15,7 @@ function App() {
     */
     <>
       <GlobalHeaderByMariePierreLessard />
+      <MainNavByMariePierreLessard />
       <MainByMariePierreLessard />
       <GlobalFooterByMariePierreLessard />
     </>

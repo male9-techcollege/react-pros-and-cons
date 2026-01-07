@@ -1,39 +1,48 @@
 @use "../../styles/sizes" as *;
+@use "../../styles/mixins" as *;
 /* DONE: 
 Opgave: Du skal skrive minimum to css klasser til hvert komponent. */
 /* See course notes from master class in folder react-mc-med-kasper */
 
-/* #region First day's assignments */
+/* #region First day's assignments (edited in assignment about responsive nav) */
 /* The following styling is from the first day's assignments. 
 I replaced the hyphens by camel case because spaces are inserted when cutting and pasting,
 and an arithmetic error is thrown !
 The second day's assignment requires me to create additional classes (2 per component). */
 .proConGridByMariePierreLessard {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    @include oneColGrid;
+    margin-top: 2em;
+
+    .card {
+        padding: 2em;
+
+        .olByMariePierreLessard {
+            @include oneColGrid;
+            gap: $half-rem;
+
+            text-align: left;
+            /* I had to add the list marker because the automatic numbering of the ol disappear after I added Tailwind to the project. */
+            list-style-type: lower-alpha;
+        }
+    }
 }
 
-.card {
-    padding: 2em;
-}
-
-.card .olByMariePierreLessard {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: $half-rem;
-
-    text-align: left;
-    /* I had to add the list marker because the automatic numbering of the ol disappear after I added Tailwind to the project. */
-    list-style-type: lower-alpha;
+@media (min-width: 768px) {
+    .proConGridByMariePierreLessard {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 0;
+    }
 }
 
 .foreignLangByMariePierreLessard {
     font-style: italic;
 }
+
 /* #endregion */
 
 /* All brand names are bold. See also styling of h1 and the name React.*/
-.otherBrandsByMariePierreLessard {
+.brandsByMariePierreLessard {
     font-weight: 700;
 }
 

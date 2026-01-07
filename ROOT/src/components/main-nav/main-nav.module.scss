@@ -1,0 +1,112 @@
+@use "../../styles/sizes" as *;
+@use "../../styles/colors.module.scss" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/typography.module.scss" as *;
+
+// #region Source of general method to create category dropdown menus (submenus) in a horizontal navbar 
+/* As the tutorial from W3Schools(https://www.w3schools.com/howto/howto_js_responsive_navbar_dropdown.asp) shows, 
+here is the key to creating a horizontal navigation bar with a drop-down submenu for each menu item (e.g. on a desktop) 
+while also making sure that the main element's content will not be pushed down by a vertical expansion 
+of the whole navigation bar: 
+1. The top-level category or title of each dropdown submenu has to be in a focusable element 
+   to be accessible with a screen reader. 
+2. Put the menu items to be shown on hover below that title inside of this focusable parent. 
+3. Hide these menu items by default.
+4. Absolutely position these menu items relative to their parent. 
+   The absolute positioning will make the menu items look like an overlay 
+   above the content just below the nav.
+5. Create a hover effect on the focusable parent that makes these menu items visible.
+   Since they are inside of the container to which the hover effect applies,
+   they don't disappear when the mouse migrates from the top-level menu item
+   to the submenu items. 
+*/
+// #endregion
+
+.navBarByMariePierreLessard {
+    padding-block: $half-gr-rems;
+    border: 1px solid $clr-white;
+    background-color: $clr-react-blue;
+
+    /* .navMenuByMariePierreLessard is a ul */
+    .navMenuByMariePierreLessard {
+        /* Mobile-first design */
+        @include verticalListByMariePierreLessard;
+        /* The following overrides stuff in mixin. */
+        padding-inline: $half-gr-rems;
+        
+        .btnForMenuItemByMariePierreLessard {
+            position: relative;
+    
+            /* This overrides some button styling in App.scss */
+            /* The padding had to go because, in this system, it made the submenu look like it was overlapping the navbar
+                    instead of sitting under it. */
+            border: none;
+            padding: 0;
+            background-color: inherit;
+    
+            margin: 0;
+            width: 100%; 
+            text-align: left;
+    
+            /* I chose this name assuming that H3s with a different styling will/could be created later. */
+            .h3InMainNavByMariePierreLessard {
+                padding-inline: $half-gr-rems;
+            }
+    
+            .submenuByMariePierreLessard {
+                @include resetListByMariePierreLessard;
+                /* The following overrides stuff in mixin. */
+                padding-block: $single-rem;
+                padding-inline: $golden-ratio-in-rems;
+    
+                max-width: 290px;
+                border: 1px solid $clr-white;
+                background-color: $clr-accent;
+    
+                display: none;
+            }
+        }
+    
+        @media (min-width: 768px) {
+            .submenuByMariePierreLessard {
+                position: absolute;
+                min-width: 100px;
+                max-width: 350px;
+                // #region Source about making submenu to grow somewhat proportionately to its content without causing scroll in some view ports. 
+                /* "The max-content sizing keyword represents the maximum intrinsic size of an element. The keyword expands the element to the largest size needed to display its content without any soft wraps. For text content,
+                    this keyword does not wrap the content at all, even if it causes overflow."
+                    https: //developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/max-content
+                As a consequence, I set a max-width to avoid getting side-scroll. 
+                For some reason, in this context, the text does wrap in spite of the explanation above.
+                W3Schools said that min-width and max-width override width, but it is also not entirely true 
+                based on my experiments. 
+                Is it because the text is in a link and not a text node? I didn't have time to check.
+                */
+                // #endregion
+                width: max-content;
+            }
+        }
+    
+        .btnForMenuItemByMariePierreLessard:hover {
+            .submenuByMariePierreLessard {
+                display: block;
+            }
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .navMenuByMariePierreLessard {
+            @include horizontalListByMariePierreLessard;
+        }
+    }
+    
+    .hiddenByMariePierreLessard {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .navBarByMariePierreLessard {
+        padding-block: 0;
+    }
+}

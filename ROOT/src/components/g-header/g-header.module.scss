@@ -1,4 +1,5 @@
 @use "../../styles/sizes" as *;
+@use "../../styles/mixins" as *;
 /* DONE:
 Opgave: Du skal skrive minimum to css klasser til hvert komponent. */
 /* See course notes from master class in folder react-mc-med-kasper */
@@ -8,17 +9,16 @@ Opgave: Du skal skrive minimum to css klasser til hvert komponent. */
 Tailwind's removed all margins and paddings (a CSS reset).
 This is a fast way of putting space between the elements. */
 .headerGridByMariePierreLessard {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    gap: $golden-ratio-in-rems;
-}
-
-.headerGridByMariePierreLessard h1 {
-    font-weight: 700;
-}
-
-.bylineByMariePierreLessard {
-    font-size: $three-quarters-gr-rems;
+    @include oneColGrid;
+    // gap: $golden-ratio-in-rems;
+    padding-block: $golden-ratio-in-rems;
+    
+    h1 {
+        font-weight: 700;
+    }
+    
+    .bylineByMariePierreLessard {
+        font-size: $three-quarters-gr-rems;
+    }
 }
 
