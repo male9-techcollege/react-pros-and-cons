@@ -7,6 +7,7 @@ import { recipeArrayByMariePierreLessard } from "../../model/data";
 import { filmArrayByMariePierreLessard } from "../../model/data";
 import { SubtitleByMariePierreLessard } from "./dynamic-title";
 import { OrganisedListByMariePierreLessard } from "./dynamic-list";
+import { ClickCounterByMariePierreLessard } from "./click-counter";
 
 export const MainByMariePierreLessard = () => {
     return (
@@ -61,11 +62,18 @@ export const MainByMariePierreLessard = () => {
                         </section>
                     </div>
                 </section>
+            </section>
+            <section className={mainstyle.cardWithH2ByMariePierreLessard}>
+                <h2 id="arrayWithoutFallback" className={typography.accentClrByMariePierreLessard}>Eksempler af komponenter, som bruger hooks</h2>
                 <section id="greetingInput">
                     <h3 className={typography.accentClrByMariePierreLessard}>Hook (useState) med startværdi og kontrolleret input-felt</h3>
                     <form className={mainstyle.greetingFormByMariePierreLessard}>
                         <GreetingFieldsetByMariePierreLessard />
                     </form>
+                </section>
+                <section id="clickCounter">
+                    <h3 className={typography.accentClrByMariePierreLessard}>Hook (useState) med startværdi og tællingsfunktion</h3>
+                    <ClickCounterByMariePierreLessard />
                 </section>
             </section>
         </main>

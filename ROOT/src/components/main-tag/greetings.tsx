@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 
 /* #region Assignment 1, sektion 2.7 */
 interface greetingInterfaceByMariePierreLessard {

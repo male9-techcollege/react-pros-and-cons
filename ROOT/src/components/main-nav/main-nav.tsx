@@ -60,20 +60,19 @@ export const MainNavByMariePierreLessard = () => {
                 </li>
                 <li>
                     <button type="button" className={mainnavstyle.btnForMenuItemByMariePierreLessard}>
-                        <h3 className={mainnavstyle.h3InMainNavByMariePierreLessard}>Eksempler</h3>
+                        <h3 className={mainnavstyle.h3InMainNavByMariePierreLessard}>Props</h3>
                         <ul className={mainnavstyle.submenuByMariePierreLessard}>
-                            <li><a href="#arrayWithoutFallback">Props: fortegnelse ("array") uden substitut ("fallback")</a></li>
-                            <li><a href="#stringWithFallback">Props: streng med substitut</a></li>
-                            <li><a href="#arraysWithFallback">Props: fortegnelser med substitut</a></li>
-                            <li><a href="#greetingInput">Hooks: useState med startværdi og kontrolleret input</a></li>
+                            <li><a href="#arrayWithoutFallback">Fortegnelse ("array") uden substitut ("fallback")</a></li>
+                            <li><a href="#stringWithFallback">Streng med substitut</a></li>
+                            <li><a href="#arraysWithFallback">Fortegnelser med substitut</a></li>
                         </ul>
                     </button>
                 </li>
                 <li>
                     <button type="button" className={mainnavstyle.btnForMenuItemByMariePierreLessard}>
-                        <h3 className={mainnavstyle.h3InMainNavByMariePierreLessard}>Emne 3</h3>
+                        <h3 className={mainnavstyle.h3InMainNavByMariePierreLessard}>Hooks</h3>
                         <ul className={mainnavstyle.submenuByMariePierreLessard}>
-                            <li><a href="javascript:void(0)">Link 1 -- Lorem ipsum dolor sit amet </a></li>
+                            <li><a href="#clickCounter">Hooks: useState med startværdi og kontrolleret input</a></li>
                             <li><a href="javascript:void(0)">Link 2 -- Lorem ipsum dolor sit amet </a></li>
                         </ul>
                     </button>
