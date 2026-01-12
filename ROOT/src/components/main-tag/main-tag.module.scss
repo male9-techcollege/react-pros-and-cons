@@ -1,5 +1,6 @@
 /* See course notes from master class in folder react-intro-mc-med-kasper */
 @use "../../styles/sizes" as *;
+@use "../../styles/colors.module.scss" as *;
 @use "../../styles/mixins" as *;
 
 /* #region First day's assignments (edited in assignments about responsive nav and about lists) */
@@ -82,9 +83,24 @@ This is WHY I didn't do any nesting here.
     }
 }
 
-.greetingFormByMariePierreLessard {
+.hookFormByMariePierreLessard {
     input {
         height: 2rem;
+        background-color: $clr-white;
+        
+        &:hover {
+            background-color: $clr-react-blue;
+        }
+        
+        &:focus {
+            /* This outline is the default outline for buttons in a new Vite project */
+            outline: 4px auto -webkit-focus-ring-color;
+            background-color: $clr-white;
+        }
+    
+        &:active {
+            background-color: $clr-vites-default-purple;
+        }
     }
 
     input:first-of-type {
@@ -93,11 +109,12 @@ This is WHY I didn't do any nesting here.
 
     input:nth-of-type(2) {
         width: 4rem;
+        font-weight: 600;
     }
 
     p {
         display: inline;
-        margin-left: 3rem;
+        margin-left: 2rem;
         margin-right: 1rem;
     }
 }

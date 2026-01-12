@@ -67,13 +67,15 @@ export const MainByMariePierreLessard = () => {
                 <h2 id="arrayWithoutFallback" className={typography.accentClrByMariePierreLessard}>Eksempler af komponenter, som bruger hooks</h2>
                 <section id="greetingInput">
                     <h3 className={typography.accentClrByMariePierreLessard}>Hook (useState) med startværdi og kontrolleret input-felt</h3>
-                    <form className={mainstyle.greetingFormByMariePierreLessard}>
+                    <form className={mainstyle.hookFormByMariePierreLessard}>
                         <GreetingFieldsetByMariePierreLessard />
                     </form>
                 </section>
                 <section id="clickCounter">
                     <h3 className={typography.accentClrByMariePierreLessard}>Hook (useState) med startværdi og tællingsfunktion</h3>
-                    <ClickCounterByMariePierreLessard />
+                    <form className={mainstyle.hookFormByMariePierreLessard}>
+                        <ClickCounterByMariePierreLessard />
+                    </form>
                 </section>
             </section>
         </main>

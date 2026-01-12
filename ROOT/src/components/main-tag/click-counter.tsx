@@ -3,7 +3,6 @@ import { useState } from "react";
 /* Source: react-state-codealong-med-kasper */
 export const ClickCounterByMariePierreLessard = ()=> {
     const [clickCountByMariePierreLessard, setClickCountByMariePierreLessard] = useState(0);
-    console.log("Count: ", clickCountByMariePierreLessard);
 
     /* An event handler */
     function handleCountByMariePierreLessard() {
@@ -11,12 +10,13 @@ export const ClickCounterByMariePierreLessard = ()=> {
     };
 
     return (
-        <>
-            <input type="text" onChange={(event) => {
-                console.log(event.target.value);
+        <fieldset>
+            <legend>Prøv mig</legend>
+            <input type="button" value="Click me!" onClick={handleCountByMariePierreLessard} />
+            <p>Du har klikket på knappen {clickCountByMariePierreLessard} gange.</p>
+            <input type="reset" onClick={() => {
+                setClickCountByMariePierreLessard(0);
             }} />
-            <button type="button" onClick={handleCountByMariePierreLessard}>Click me!</button>
-            <p>Count: {clickCountByMariePierreLessard}</p>
-        </>
+        </fieldset>
     );
 };
