@@ -25,6 +25,8 @@ which I copied, reorganised and edited below). */
 
   /* This is an addition to the styling in index.css. */
   font-size: 18px;
+
+  
 }
 
 body {
@@ -40,12 +42,12 @@ body {
   min-height: 100vh;
 }
 
-/* #root is a div in the index.html file */
+/* #root is a div in the index.html file 
+IMPORTANT: #root and :root are not the same element! */
 #root {
   max-width: $max-width;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 /* .logo {

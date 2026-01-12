@@ -1,17 +1,18 @@
+/* See course notes from master class in folder react-intro-mc-med-kasper */
 @use "../../styles/sizes" as *;
 @use "../../styles/mixins" as *;
-/* DONE:
-Opgave: Du skal skrive minimum to css klasser til hvert komponent. */
-/* See course notes from master class in folder react-mc-med-kasper */
 
+/* #region Assignment 1, section 2.6: Opgave: Du skal skrive minimum to css klasser til hvert komponent. */
 /* I chose to make the simple header a grid because once I added Tailwind to the project
 (we were learning about that but could choose SCSS instead of Tailwind),
 Tailwind's removed all margins and paddings (a CSS reset).
 This is a fast way of putting space between the elements. */
 .headerGridByMariePierreLessard {
-    @include oneColGrid;
+    @include oneColGridByMariePierreLessard;
     // gap: $golden-ratio-in-rems;
     padding-block: $golden-ratio-in-rems;
+
+    text-align: center;
     
     h1 {
         font-weight: 700;
@@ -21,4 +22,5 @@ This is a fast way of putting space between the elements. */
         font-size: $three-quarters-gr-rems;
     }
 }
+/* #endregion */
 

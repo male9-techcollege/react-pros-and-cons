@@ -1,37 +1,84 @@
+/* See course notes from master class in folder react-intro-mc-med-kasper */
 @use "../../styles/sizes" as *;
 @use "../../styles/mixins" as *;
-/* DONE: 
-Opgave: Du skal skrive minimum to css klasser til hvert komponent. */
-/* See course notes from master class in folder react-mc-med-kasper */
 
-/* #region First day's assignments (edited in assignment about responsive nav) */
-/* The following styling is from the first day's assignments. 
+/* #region First day's assignments (edited in assignments about responsive nav and about lists) */
+/* The following styling is from the first day's assignments (sections 2.2 and 2.5). 
 I replaced the hyphens by camel case because spaces are inserted when cutting and pasting,
 and an arithmetic error is thrown !
 The second day's assignment requires me to create additional classes (2 per component). */
-.proConGridByMariePierreLessard {
-    @include oneColGrid;
+
+/* IMPORTANT: since elements with class cardWithH2ByMariePierreLessard can exist inside and outside of gridForOlByMariePierreLessard,
+some styles disappear if classes are nested inside of gridForOlByMariePierreLessard in SCSS.
+This is WHY I didn't do any nesting here.
+*/
+.gridForOlByMariePierreLessard {
+    @include oneColGridByMariePierreLessard;
     margin-top: 2em;
-
-    .card {
-        padding: 2em;
-
-        .olByMariePierreLessard {
-            @include oneColGrid;
-            gap: $half-rem;
-
-            text-align: left;
-            /* I had to add the list marker because the automatic numbering of the ol disappear after I added Tailwind to the project. */
-            list-style-type: lower-alpha;
-        }
-    }
 }
 
 @media (min-width: 768px) {
-    .proConGridByMariePierreLessard {
+    .gridForOlByMariePierreLessard {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         margin-top: 0;
+    }
+}
+
+.cardWithH2ByMariePierreLessard {
+    padding: 2em;
+
+    h2,
+    h3,
+    h4,
+    header {
+        text-align: center;
+    }
+
+    h3 {
+        margin-top: 2em;
+    }
+
+    .olLaByMariePierreLessard {
+        @include listByMariePierreLessard;
+
+        /* I had to add the list marker because the automatic numbering of the ol disappear after I added Tailwind to the project. */
+        list-style-type: lower-alpha;
+    }
+
+    @media (min-width: 768px) {
+        .cardWithH3ByMariePierreLessard {
+            .columnsByMariePierreLessard {
+                /* Source of column-count: 
+                www.w3schools.com/cssref/css3_pr_column-count.php  */
+                column-count: 2;
+            }
+        }
+    }
+
+    .cardWithH4ByMariePierreLessard {
+        padding-inline: 2em;
+        /* No padding at the top, otherwise there is too much space between the H4s and the H3. */
+        padding-top: 0;
+        padding-bottom: 1em;
+
+        @media (min-width: 768px) {
+            .cardWithH4ByMariePierreLessard {
+                padding-bottom: 2em;
+            }
+        }
+
+        h4 {
+            /* No margin, otherwise there is too much space between the H4s and the H3. */
+            margin-top: 0;
+        }
+
+        .olDecimalByMariePierreLessard {
+            @include listByMariePierreLessard;
+
+            /* I had to add the list marker because the automatic numbering of the ol disappear after I added Tailwind to the project. */
+            list-style-type: decimal;
+        }
     }
 }
 
@@ -41,6 +88,7 @@ The second day's assignment requires me to create additional classes (2 per comp
 
 /* #endregion */
 
+/* #region Assignment 1, section 2.6: Opgave: Du skal skrive minimum to css klasser til hvert komponent. */
 /* All brand names are bold. See also styling of h1 and the name React.*/
 .brandsByMariePierreLessard {
     font-weight: 700;
@@ -52,3 +100,5 @@ This is to remove that styling. */
 .backToNormalByMariePierreLessard {
     font-style: normal;
 }
+
+/* #endregion */

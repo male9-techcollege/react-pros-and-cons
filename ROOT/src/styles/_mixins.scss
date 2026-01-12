@@ -23,7 +23,13 @@
     gap: $half-gr-rems;
 }
 
-@mixin oneColGrid {
+@mixin oneColGridByMariePierreLessard {
     display: grid;
     grid-template-columns: 1fr;
+}
+
+@mixin listByMariePierreLessard {
+    @include oneColGridByMariePierreLessard;
+    gap: $half-rem;
+    text-align: left;
 }
