@@ -14,6 +14,7 @@ export const GreetingByMariePierreLessard = (props: greetingInterfaceByMariePier
 /* #endregion */
 
 /* #region Assignment 1, sektion 3.1 */
+/* Source: react-state-codealong-med-kasper */
 export const GreetingFieldsetByMariePierreLessard = () => {
     const [userNameByMariePierreLessard, setUserNameByMariePierreLessard] = useState<string>("(indtast et navn)");
 
