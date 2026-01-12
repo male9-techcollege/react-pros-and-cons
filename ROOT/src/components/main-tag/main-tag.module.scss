@@ -82,6 +82,26 @@ This is WHY I didn't do any nesting here.
     }
 }
 
+.greetingFormByMariePierreLessard {
+    input {
+        height: 2rem;
+    }
+
+    input:first-of-type {
+        width: 12rem;
+    }
+
+    input:nth-of-type(2) {
+        width: 4rem;
+    }
+
+    p {
+        display: inline;
+        margin-left: 3rem;
+        margin-right: 1rem;
+    }
+}
+
 .foreignLangByMariePierreLessard {
     font-style: italic;
 }

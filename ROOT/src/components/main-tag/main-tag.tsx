@@ -1,7 +1,7 @@
 import globalstyle from "../../styles/colors.module.scss";
 import typography from "../../styles/typography.module.scss";
 import mainstyle from "./main-tag.module.scss";
-import { GreetingByMariePierreLessard } from "./greeting";
+import { GreetingByMariePierreLessard, GreetingFieldsetByMariePierreLessard } from "./greetings";
 import { nameArrayByMariePierreLessard } from "../../model/data";
 import { recipeArrayByMariePierreLessard } from "../../model/data";
 import { filmArrayByMariePierreLessard } from "../../model/data";
@@ -60,6 +60,12 @@ export const MainByMariePierreLessard = () => {
                             <OrganisedListByMariePierreLessard list={filmArrayByMariePierreLessard} />
                         </section>
                     </div>
+                </section>
+                <section id="greetingInput">
+                    <h3 className={typography.accentClrByMariePierreLessard}>Hook (useState) med startværdi og kontrolleret input-felt</h3>
+                    <form className={mainstyle.greetingFormByMariePierreLessard}>
+                        <GreetingFieldsetByMariePierreLessard />
+                    </form>
                 </section>
             </section>
         </main>

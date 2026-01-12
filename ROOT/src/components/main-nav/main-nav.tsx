@@ -65,6 +65,7 @@ export const MainNavByMariePierreLessard = () => {
                             <li><a href="#arrayWithoutFallback">Props: fortegnelse ("array") uden substitut ("fallback")</a></li>
                             <li><a href="#stringWithFallback">Props: streng med substitut</a></li>
                             <li><a href="#arraysWithFallback">Props: fortegnelser med substitut</a></li>
+                            <li><a href="#greetingInput">Hooks: useState med startværdi og kontrolleret input</a></li>
                         </ul>
                     </button>
                 </li>
