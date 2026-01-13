@@ -1,0 +1,123 @@
+/* This is based on the style sheets for global styles that were created by Vite. */
+/* ABOUT .scss versus .module.scss: 
+Interestingly, my tests in this project and another project showed the following: 
+- If I rename this global style sheet something.module.scss, I lose some (but not all) of the styling. 
+  (The global footer was no longer sent to the bottom.)
+- It is possible to import a style sheet named something.scss in App.tsx and main.tsx. 
+  However, this would not work (or is not supposed to work) in the files where the components are defined.
+  I changed the extension from .css to .scss because I @used variables in here.
+Maybe TO DO: ask why  
+*/
+
+/* I opted for not using Tailwind because it implements styling over which I have no control on top of my SCSS styling.
+More work for nothing! */
+// @use "tailwindcss";
+@use "./styles/_sizes.scss" as *;
+@use "./styles/colors.module.scss" as *;
+
+/* If I add the following universal selector, the body element's default margin of 8px (provided by the browser)
+does disappear (see DevTools, Elements tab, and then body styling under "user agent stylesheet"). 
+* {
+    margin: 0;
+}
+*/
+
+/* Maybe TO DO: add a button to switch colour theme (this is made possible by CSS in the old index.css, 
+which reorganised and edited below). */
+
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    // color-scheme: light dark;
+    color: $clr-white;
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Addition to styling from file index.css. */
+    font-size: 18px;
+}
+
+/* #root is a div in the index.html file 
+IMPORTANT: #root and :root are not the same element!
+TO DO:
+Known facts: 
+*    #root (<div id="root" ></div> in the .html file) is the parent of <App />
+*    According to DevTools, :root is the html element since the styling (e.g. font-size: 18px; ) is listed 
+     under "Inherited from html" in the tab Elements. 
+**    That is amazing to me because this scss file is NOT imported by the HTML file. It is imported by main.tsx, 
+      which creates a root element with: 
+      createRoot(document.getElementById('root')!).render();
+      So how can the styling apply to an ancestor of #root?
+Q to teacher to check:
+is :root the component <App />, the parent of <App /> (#root) or the html element?
+Probable A: the latter. But why? 
+*/
+#root {
+    /* A little styling from the file index.css remains,
+    but I changed a lot. */
+    margin: 0 auto;
+    /* This padding is on top of the default margin on body (from the user-agent stylesheet).
+    That margin is still there because there is no universal selector in this project. */
+    padding: 2rem;
+    max-width: $max-width;
+
+    /* Normally, this styling is applied to body in order to send the footer all the way to the bottom on all screens. 
+    However, it is not possible to access the body element from the app since the app is in a div inside of body. 
+    It works to apply this styling to #root instead. */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+}
+
+a {
+    font-weight: 500;
+    color: $clr-vites-default-purple;
+    text-decoration: none;
+}
+
+a:hover {
+    color: $clr-vites-default-dark-purple-dm;
+    text-decoration: underline;
+}
+
+button {
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: $clr-white;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+button:hover {
+    border-color: $clr-react-blue;
+}
+
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: $clr-white;
+    }
+
+    a:hover {
+        color: $clr-vites-default-light-purple-lm;
+    }
+
+    button {
+        background-color: #f9f9f9;
+    }
+}

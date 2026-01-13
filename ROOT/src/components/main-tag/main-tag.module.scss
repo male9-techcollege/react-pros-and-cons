@@ -59,15 +59,10 @@ This is WHY I didn't do any nesting here.
 
     .cardWithH4ByMariePierreLessard {
         padding-inline: 2em;
-        /* No padding at the top, otherwise there is too much space between the H4s and the H3. */
-        padding-top: 0;
-        padding-bottom: 1em;
-
-        @media (min-width: 768px) {
-            .cardWithH4ByMariePierreLessard {
-                padding-bottom: 2em;
-            }
-        }
+        /* No padding at the top, otherwise there is too much space between the H4s and the H3. 
+        I also removed the padding at the bottom after adding a new section (hooks) since that section
+        has its own padding. */
+        padding-block: 0;
 
         h4 {
             /* No margin, otherwise there is too much space between the H4s and the H3. */
@@ -84,38 +79,51 @@ This is WHY I didn't do any nesting here.
 }
 
 .hookFormByMariePierreLessard {
-    input {
-        height: 2rem;
-        background-color: $clr-white;
-        
-        &:hover {
-            background-color: $clr-react-blue;
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        p {
+            margin: 0;
         }
-        
-        &:focus {
-            /* This outline is the default outline for buttons in a new Vite project */
-            outline: 4px auto -webkit-focus-ring-color;
+
+        input {
+            height: 2rem;
             background-color: $clr-white;
+
+            &:hover {
+                background-color: $clr-react-blue;
+            }
+
+            &:focus {
+                /* This outline is the default outline for buttons in a new Vite project */
+                outline: 4px auto -webkit-focus-ring-color;
+                background-color: $clr-white;
+            }
+
+            &:active {
+                background-color: $clr-vites-default-purple;
+            }
         }
-    
-        &:active {
-            background-color: $clr-vites-default-purple;
+
+        input:first-of-type {
+            width: 12rem;
         }
+
+        input:nth-of-type(2) {
+            width: 4rem;
+            font-weight: 600;
+        }
+
     }
 
-    input:first-of-type {
-        width: 12rem;
-    }
-
-    input:nth-of-type(2) {
-        width: 4rem;
-        font-weight: 600;
-    }
-
-    p {
-        display: inline;
-        margin-left: 2rem;
-        margin-right: 1rem;
+    @media (min-width: 1024px) {
+        fieldset {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
     }
 }
 

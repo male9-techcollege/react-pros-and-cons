@@ -37,12 +37,12 @@ export const MainByMariePierreLessard = () => {
                     </ol>
                 </section>
             </div>
-            <section className={mainstyle.cardWithH2ByMariePierreLessard}>
-                <h2 id="arrayWithoutFallback" className={typography.accentClrByMariePierreLessard}>Eksempler af komponenter, som modtager props</h2>
+            <section id="arrayWithoutFallback" className={mainstyle.cardWithH2ByMariePierreLessard}>
+                <h2 className={typography.accentClrByMariePierreLessard}>Eksempler af komponenter, som modtager props</h2>
                 <h3 className={typography.accentClrByMariePierreLessard}>Hilsner</h3>
                 {nameArrayByMariePierreLessard.map((item) => {
                     return (
-                        <GreetingByMariePierreLessard name={item.name} id={item.id} />
+                        <GreetingByMariePierreLessard key={item.id} name={item.name} id={item.id} />
                     );
                 })}
                 <section id="stringWithFallback" className={mainstyle.cardWithH3ByMariePierreLessard}>
@@ -64,15 +64,15 @@ export const MainByMariePierreLessard = () => {
                 </section>
             </section>
             <section className={mainstyle.cardWithH2ByMariePierreLessard}>
-                <h2 id="arrayWithoutFallback" className={typography.accentClrByMariePierreLessard}>Eksempler af komponenter, som bruger hooks</h2>
+                <h2 className={typography.accentClrByMariePierreLessard}>Eksempler af komponenter, som bruger hooks</h2>
                 <section id="greetingInput">
-                    <h3 className={typography.accentClrByMariePierreLessard}>Hook (useState) med startværdi og kontrolleret input-felt</h3>
+                    <h3 className={typography.accentClrByMariePierreLessard}>Hook (useState) med startværdi, kontrolleret input-felt og nulstillingsknap</h3>
                     <form className={mainstyle.hookFormByMariePierreLessard}>
                         <GreetingFieldsetByMariePierreLessard />
                     </form>
                 </section>
                 <section id="clickCounter">
-                    <h3 className={typography.accentClrByMariePierreLessard}>Hook (useState) med startværdi og tællingsfunktion</h3>
+                    <h3 className={typography.accentClrByMariePierreLessard}>Hook (useState) med startværdi, tællingsfunktion og nulstillingsknap</h3>
                     <form className={mainstyle.hookFormByMariePierreLessard}>
                         <ClickCounterByMariePierreLessard />
                     </form>

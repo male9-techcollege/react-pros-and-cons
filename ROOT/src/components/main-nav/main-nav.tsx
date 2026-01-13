@@ -72,8 +72,9 @@ export const MainNavByMariePierreLessard = () => {
                     <button type="button" className={mainnavstyle.btnForMenuItemByMariePierreLessard}>
                         <h3 className={mainnavstyle.h3InMainNavByMariePierreLessard}>Hooks</h3>
                         <ul className={mainnavstyle.submenuByMariePierreLessard}>
-                            <li><a href="#clickCounter">Hooks: useState med startværdi og kontrolleret input</a></li>
-                            <li><a href="javascript:void(0)">Link 2 -- Lorem ipsum dolor sit amet </a></li>
+                            <li><a href="#greetingInput">Med startværdi, kontrolleret input og nulstillingsknap</a></li>
+                            <li><a href="#clickCounter">Med startværdi, tællingsfunktion og nulstillingsknap</a></li>
+                            <li><a href="javascript:void(0)">Link 3 -- Lorem ipsum dolor sit amet </a></li>
                         </ul>
                     </button>
                 </li>

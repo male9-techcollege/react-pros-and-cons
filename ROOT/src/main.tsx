@@ -2,6 +2,7 @@
 En top level React class der bruges til at interegere med DOM'en" 
 https://moodle.techcollege.dk/course/section.php?id=286234
 */
+import "./main.scss";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 
