@@ -9,7 +9,26 @@ $half-rem: $single-rem * 0.5;
 $golden-ratio-in-rems: 1.618rem;
 $half-gr-rems: $golden-ratio-in-rems * 0.5; 
 $three-quarters-gr-rems: $golden-ratio-in-rems * 0.75; // 0.75 of 1.618 is 1.2135 (12 and 16 are both divisible by 4)
-$gr-rems-cubed: math.pow(1.618, 3) * 1rem; //This calculation does not accept units. The result is unitless unless one multiples by 1<unit>. Source of idea: https: //www.kevinpowell.co/article/how-to-append-a-unit-to-a-custom-property-with-calc/
+/* The following calculation does not accept units. The result is unitless unless one multiples by 1<unit>. 
+Source of idea: https: //www.kevinpowell.co/article/how-to-append-a-unit-to-a-custom-property-with-calc/
+*/
+$gr-rems-cubed: math.pow(1.618, 3) * 1rem; 
 //@debug math.pow(1.618, 3);
 
 $max-width: 1280px; //main wrapper
+
+/* #region React logo */
+/* The SVG file gives the following proportions: 
+width="35.93"
+height="32"
+
+I want a height of $gr-rems-cubed instead of 32
+*/
+//@debug(32*$gr-rems-cubed);
+/* Calculation to blow-up React logo for footer */
+/* Step 1 */
+$multiplication: 35.93 * $gr-rems-cubed;
+/* Step 2 */
+$desired-logo-width: math.div($multiplication, 32);
+//@debug $desired-logo-width;
+/* #endregion React logo */

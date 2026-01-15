@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-/* #region Assignment 1, sektion 2.7 */
+// #region Assignment 1, sektion 2.7
 interface greetingInterfaceByMariePierreLessard {
     id: number;
     name: string;
@@ -11,9 +11,9 @@ export const GreetingByMariePierreLessard = (props: greetingInterfaceByMariePier
         <p>Hej, {props.name}! Dit identifikationsnummer er {props.id}.</p>
     );
 };
-/* #endregion */
+// #endregion
 
-/* #region Assignment 1, sektion 3.1 */
+// #region Assignment 1, sektion 3.1 
 /* Source: react-state-codealong-med-kasper */
 export const GreetingFieldsetByMariePierreLessard = () => {
     const [userNameByMariePierreLessard, setUserNameByMariePierreLessard] = useState<string>("(indtast et navn)");
@@ -56,4 +56,4 @@ export const GreetingFieldsetByMariePierreLessard = () => {
             </fieldset>
     );
 };
-/* #endregion */
+// #endregion 

@@ -74,8 +74,9 @@ of the whole navigation bar:
                 min-width: 100px;
                 max-width: 350px;
                 // #region Source about making submenu to grow somewhat proportionately to its content without causing scroll in some view ports. 
-                /* "The max-content sizing keyword represents the maximum intrinsic size of an element. The keyword expands the element to the largest size needed to display its content without any soft wraps. For text content,
-                    this keyword does not wrap the content at all, even if it causes overflow."
+                /* "The max-content sizing keyword represents the maximum intrinsic size of an element. 
+                    The keyword expands the element to the largest size needed to display its content without any soft wraps. 
+                    For text content, this keyword does not wrap the content at all, even if it causes overflow."
                     https: //developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/max-content
                 As a consequence, I set a max-width to avoid getting side-scroll. 
                 For some reason, in this context, the text does wrap in spite of the explanation above.

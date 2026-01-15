@@ -1,8 +1,14 @@
 /* See course notes from master class in folder react-mc-med-kasper */
 /* This file is called a something.module.scss because I used to have classes in here, not just variables. */
 
+/* Primary colour */
+/* This is Vite's default project's background colour (I didn't change it) */
+$clr-dark-grey: #242424;
+$clr-dark-grey-transparent: #24242460;
+
 /* Secondary colour */
 $clr-white: #ffffff;
+$clr-white-transparent: #ffffff60;
 /* The primary and secondary colours (black and white respectively) are Vite's defaults. 
 The following are three accent colours, React blue being the most used. */
 /* "The hex code of the React Logo is #61DBFB. The RGB equivalent is (97, 219, 251)." 

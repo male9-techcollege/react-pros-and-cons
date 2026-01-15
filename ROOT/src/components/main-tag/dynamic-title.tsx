@@ -1,6 +1,6 @@
 import typography from "../../styles/typography.module.scss";
 
-/* #region Assignment 2, sektion 2.7 */
+// #region Assignment 2, sektion 2.7
 interface SubtitleInterfaceByMariePierreLessard {
     headerText?: string;
 };
@@ -20,5 +20,5 @@ export const SubtitleByMariePierreLessard = (props: SubtitleInterfaceByMariePier
         </header>
     );
 };
-/* #endregion */
+// #endregion 
 

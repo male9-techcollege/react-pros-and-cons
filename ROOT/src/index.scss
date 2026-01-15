@@ -2,16 +2,49 @@
 /* ABOUT .scss versus .module.scss: 
 Interestingly, my tests in this project and another project showed the following: 
 - If I rename this global style sheet something.module.scss, I lose some (but not all) of the styling. 
-  (The global footer was no longer sent to the bottom.)
-- It is possible to import a style sheet named something.scss in App.tsx and main.tsx. 
-  However, this would not work (or is not supposed to work) in the files where the components are defined.
+  (The global footer was no longer sent to the bottom in my react-gallery-wrapper assignment, which I just started.)
+- It is possible to import a style sheet named something.scss (not something.module.scss) in App.tsx and main.tsx. 
+  However, the teacher said that it would not work (or is not supposed to work) in the files where the components are defined.
   I changed the extension from .css to .scss because I @used variables in here.
-Maybe TO DO: ask why  
+TO DO: ask why  
+The following is an old source about the deprecated create-react-app, which we are not using, but this is probably the answer: 
+"By default, create-react-app 2.0.0 treats any file that follows the *.module.scss pattern as modular 
+and any other *.scss files as global."
+https: //medium.com/clover-platform-blog/modular-scss-and-why-you-need-it-6bb2d8c40fd8
+
+"Global styles 
+In some cases, you may need to use global styles in CSS Modules,
+such as overriding the styles of third-party libraries or setting global styles for specific elements."
+https://rsbuild.rs/guide/styling/css-modules#css-modules-recognition-rules
+Note: Rsbuild does use React.
+"Rsbuild provides a rich set of build features, including support for TypeScript, JSX, Sass, Less, CSS Modules, Wasm, and more."
+https: //rsbuild.rs/guide/start/
+
+"One great usage of SASS is to store the various colors used in your app as variables. These variables can then be referenced in other .scss files,
+or in this case directly in your React components. (...) But if you want to extract this color to use directly in a React component,
+you’ll have to make the following updates: (...)
+// Rename _colors.scss to _colors.module.scss
+$primaryColor: $1d6dd3;
+:export {
+    primary: $primaryColor;
+}
+Adding the .module part into the filename allows it to be imported into a React component and any key-value pair in the :export section is accessible like this: 
+// CircleSvg.js
+import colors from '_colors.module.scss';
+function CircleSvg() {
+    return <svg><g fill= {colors.primary}>...</g></svg>;
+}
+(...)
+Your existing .scss files can still import the file as normal just by adding the .module part to the filename.
+"
+https://medium.com/@UReyesMeUp/using-sass-variables-in-your-react-components-e3813a6cc81e
+Note: since we don't need to use :export, I am thinking that this source is either too old (2019) 
+or based on another tech stack than the one we are using. 
 */
 
 /* I opted for not using Tailwind because it implements styling over which I have no control on top of my SCSS styling.
 More work for nothing! */
-// @use "tailwindcss";
+/* @use "tailwindcss"; */
 @use "./styles/_sizes.scss" as *;
 @use "./styles/colors.module.scss" as *;
 
@@ -30,9 +63,9 @@ which reorganised and edited below). */
     line-height: 1.5;
     font-weight: 400;
 
-    // color-scheme: light dark;
+    /* color-scheme: light dark; */
     color: $clr-white;
-    background-color: #242424;
+    background-color: $clr-dark-grey; 
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -58,7 +91,7 @@ Q to teacher to check:
 is :root the component <App />, the parent of <App /> (#root) or the html element?
 Probable A: the latter. But why? 
 */
-#root {
+#rootByMariePierreLessard {
     /* A little styling from the file index.css remains,
     but I changed a lot. */
     margin: 0 auto;

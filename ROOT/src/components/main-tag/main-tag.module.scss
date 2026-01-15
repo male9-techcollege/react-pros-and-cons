@@ -9,7 +9,8 @@ I replaced the hyphens by camel case because spaces are inserted when cutting an
 and an arithmetic error is thrown !
 The second day's assignment requires me to create additional classes (2 per component). */
 
-/* IMPORTANT: since elements with class cardWithH2ByMariePierreLessard can exist inside and outside of gridForOlByMariePierreLessard,
+/* IMPORTANT: since elements with class cardWithH2ByMariePierreLessard can exist inside and outside of 
+gridForOlByMariePierreLessard,
 some styles disappear if classes are nested inside of gridForOlByMariePierreLessard in SCSS.
 This is WHY I didn't do any nesting here.
 */
@@ -27,6 +28,11 @@ This is WHY I didn't do any nesting here.
 }
 
 .cardWithH2ByMariePierreLessard {
+    /* I created a grid in order to put picture in a cell, but it didn't allow me to control the size of the picture,
+    as it normally would. */
+    display: grid;
+    grid-template-columns: 1fr;
+    
     padding: 2em;
 
     h2,
@@ -43,7 +49,8 @@ This is WHY I didn't do any nesting here.
     .olLaByMariePierreLessard {
         @include listByMariePierreLessard;
 
-        /* I had to add the list marker because the automatic numbering of the ol disappear after I added Tailwind to the project. */
+        /* I had to add the list marker because the automatic numbering of the ol disappear after I added 
+        Tailwind to the project. */
         list-style-type: lower-alpha;
     }
 
@@ -72,7 +79,8 @@ This is WHY I didn't do any nesting here.
         .olDecimalByMariePierreLessard {
             @include listByMariePierreLessard;
 
-            /* I had to add the list marker because the automatic numbering of the ol disappear after I added Tailwind to the project. */
+            /* I had to add the list marker because the automatic numbering of the ol disappear after I added 
+            Tailwind to the project. */
             list-style-type: decimal;
         }
     }

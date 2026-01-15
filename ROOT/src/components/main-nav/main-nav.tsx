@@ -1,6 +1,19 @@
+/* Source: react-modal-codealong-med-kasper */
 import mainnavstyle from "./main-nav.module.scss";
 
-export const MainNavByMariePierreLessard = () => {
+interface NavigationProps {
+    /* TypeScript requires the type of the return value to be given.
+    The isOpen: could be anything, like b: for boolean */
+    /* Void functions: 
+    Kasper and sources on the Internet say that a void function doesn't return anything.
+    It's pretty badly explained, but I think that a void function is a function at the end of the call stack.
+    It doesn't relay any argument to another function. It just performs an action.
+    Void is a type. */
+    setModalIsOpenByMariePierreLessard: (isOpen: boolean) => void;
+};
+
+/* The name setIsOpen has to be the same as the name given for this in App.tsx */
+export const MainNavByMariePierreLessard = ({ setModalIsOpenByMariePierreLessard }: NavigationProps) => {
     /* Source for way to fold regions in .jsx files: https://stackoverflow.com/questions/58882591/region-for-jsx */
     // #region Sources for concatenation/combination of CSS classes in React
         /* The following combines a class from the CSS file with Tailwind styling (source: Kasper).
@@ -40,8 +53,9 @@ export const MainNavByMariePierreLessard = () => {
     Sources for hamburger-menu icons that don't require importation or a file:
     - CSS: https://www.w3schools.com/howto/howto_css_menu_icon.asp
     - HTML entity &#9776; : https://www.w3schools.com/howto/howto_js_responsive_navbar_dropdown.asp
-    "Entity is a term from the Standard Generalized Markup Language (SGML), which refers to a reference to information that can be defined once and used throughout a document.
-    The term "HTML Entity" is used as a synonym for a character reference — a pattern of characters that can represent another character in the HTML."
+    "Entity is a term from the Standard Generalized Markup Language (SGML), which refers to a reference to information 
+    that can be defined once and used throughout a document. The term "HTML Entity" is used as a synonym for a character 
+    reference — a pattern of characters that can represent another character in the HTML."
     https://developer.mozilla.org/en-US/docs/Glossary/Entity
     */
 
@@ -76,6 +90,15 @@ export const MainNavByMariePierreLessard = () => {
                             <li><a href="#clickCounter">Med startværdi, tællingsfunktion og nulstillingsknap</a></li>
                             <li><a href="javascript:void(0)">Link 3 -- Lorem ipsum dolor sit amet </a></li>
                         </ul>
+                    </button>
+                </li>
+                <li>
+                    <button 
+                        type="button" 
+                        className={mainnavstyle.btnForMenuItemByMariePierreLessard} 
+                        onClick={() => setModalIsOpenByMariePierreLessard(true)}
+                    >
+                        <h3 className={mainnavstyle.h3InMainNavByMariePierreLessard}>Åbn modalen</h3>
                     </button>
                 </li>
             </ul>

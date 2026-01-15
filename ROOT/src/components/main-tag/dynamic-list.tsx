@@ -1,6 +1,6 @@
 import mainstyle from "./main-tag.module.scss";
 
-/* #region Assignment 3, sektion 2.7 */
+// #region Assignment 3, sektion 2.7 
 interface ListInterfaceByMariePierreLessard {
     /* In react-intro-mc-med-kasper, we were taught how to use an array of strings with the TypeScript type
     Array<string> 
@@ -35,5 +35,5 @@ export function OrganisedListByMariePierreLessard({ list }: ListInterfaceByMarie
         );
     };
 };
-/* #endregion */
+// #endregion 
 
