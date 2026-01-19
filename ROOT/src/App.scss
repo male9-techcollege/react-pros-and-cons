@@ -1,9 +1,9 @@
 .allImgByMariePierreLessard {
-    /* I had a hard time getting the image to fit inside of its container.     
+    /* I had a hard time getting the modal image to fit inside of its container.     
     "For object-fit to work, the image itself needs a width and height. (...) 
         When using % values for sizing, the container must have a defined width and height for object-fit to work."
         https: //stackoverflow.com/questions/34247337/object-fit-not-affecting-images */
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }

@@ -4,34 +4,60 @@
 .viewerByMariePierreLessard {
     background-color: $clr-dark-grey;
     box-shadow: 0px 0px 20px $clr-dark-grey;
-    min-width: 320px;
-    max-width: 80vw;
-    min-height: 320px;
-    max-height: 80vh;
+    padding: 2em;
+
+    /* I had a hard time getting the image to fit inside of its container in spite of using object-fit: contain;
+        with all images (see file App.scss). I also tried object-fit: cover; to no avail.
+        The fact that this is a modal requires me to use additional properties than the usual to deal with the large picture. 
+        Kasper said that this is purely a CSS problem, not sth due to React. He recommended the use of max-width
+        combined with the introduction of breakpoints as needed. He demonstrated that the problem still exists 
+        outside of a modal in the sense that pictures can be enormous and flow out of their container
+        outside of modals as well. (For instance, this would presumably happen to the picture of section 1 in the Dinny exercise 
+        if I gave a fixed size to its container. It is displayed at more than 100vh.)
+        
+        Additional tips from my own experiments:
+        1. display: grid; works better than display: flex;
+        from the point of view of shrinking the picture and keeping the desired padding on all sides.
+        2. The scroll bar appears at 392 px. Below that, the picture is actually made to fit inside of its positioned parent. 
+        This means that the user agent **can** set the width of this portrait-oriented picture to sth way smaller than 
+        the width of the parent based on the current CSS declarations. It just stubbornly stops doing it at that breakpoint.
+        It has to be a choice. 
+        
+        Possible reason, even though it also happens outside of modals: 
+        I encountered modals with a fixed position that did NOT let me see their entire content (usually text, 
+        e.g. about cookies, but also the buttons to close the cookie modal, i.e. the buttons 
+        were not accessible on a mobile phone, so I could not access the page behind the modal, at least not from my phone). 
+        When a container has a fixed position and the content is too big for the screen, the user cannot scroll all the way 
+        to the bottom unless overflow: scroll; is set; overflow: scroll; creates a new scroll bar just for the modal element.
+        My overflowing picture could be a hint dropped by the user agent to induce developers to use overflow: scroll;
+        on a container with a fixed position. It has to be best practice anyhow!
+        The advantage to be gained with this behaviour is not clear in the body of the text. Is it to tell the developer 
+        that the parent container should be more responsive and grow, as well as its contents? That is not always the
+        most desirable result! Or is it to pressure developers to create copies of images in different resolutions for
+        different devices, which helps with performance?
+
+        If there is no padding on the parent or sibling to show below the pesky image, overflow: hidden; would also do,
+        but it is weird that overflow: hidden; needs to be explicitely declared in some cases since object-fit: cover; 
+        is supposed to hide the overflow on its own.
+        */
+    overflow: scroll;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    /* I had a hard time getting the image to fit inside of its container.
-    There is something different in this situation (perhaps the fact that it is a modal, or the resolution of my picture),
-    which requires me to use additional properties to deal with the large picture. 
-    Kasper said that this is purely a CSS problem, not sth due to React. 
-    
-    display: grid; works better than display: flex;
-    from the point of view of shrinking the picture and keeping the desired padding on all sides.
-    */
-    overflow: scroll;
+    min-width: 320px;
+    max-width: 80vw;
+    min-height: 320px;
+    max-height: 80vh;
 
     display: grid;
     grid-template-columns: 1fr;
-    padding: 2em;
-    
-    div {
+    grid-template-rows: auto auto 1fr;
+
+    img {
         justify-self: center;
         max-width: 70vw;
         max-height: 70vh;
     }
-
-
 }

@@ -1,4 +1,5 @@
-/* This snippet is an improved version of the one in my leo-lov exercise. */
+/* This snippet is an improved version of the one in my leo-lov exercise. 
+I created it during the game prototype exercise (terningespil). */
 
 /* "import type only imports declarations to be used for type annotations and declarations. It always gets fully erased, 
 so there’s no remnant of it at runtime. Similarly, export type only provides an export that can be used for type contexts, 
