@@ -3,7 +3,7 @@
 @use "../../styles/colors.module.scss" as *;
 @use "../../styles/mixins" as *;
 
-/* #region First day's assignments (edited in assignments about responsive nav and about lists) */
+/* #region First day's assignments (edited in assignments about responsive nav, about lists and about toggling between colour modes) */
 /* The following styling is from the first day's assignments (sections 2.2 and 2.5). 
 I replaced the hyphens by camel case because spaces are inserted when cutting and pasting,
 and an arithmetic error is thrown !
@@ -32,7 +32,7 @@ This is WHY I didn't do any nesting here.
     as it normally would. */
     display: grid;
     grid-template-columns: 1fr;
-    
+
     padding: 2em;
 
     h2,
@@ -99,14 +99,17 @@ This is WHY I didn't do any nesting here.
         input {
             height: 2rem;
             background-color: $clr-white;
+            cursor: pointer;
 
             &:hover {
                 background-color: $clr-react-blue;
             }
 
-            &:focus {
+            &:focus,
+            &:focus-visible {
                 /* This outline is the default outline for buttons in a new Vite project */
                 outline: 4px auto -webkit-focus-ring-color;
+                outline-offset: 2px;
                 background-color: $clr-white;
             }
 
@@ -124,9 +127,18 @@ This is WHY I didn't do any nesting here.
             font-weight: 600;
         }
 
+        /* This overrides some of the global button styling in index.scss. */
+        button {
+            border: 2px solid $clr-dark-grey;
+            width: 24rem;
+            font-size: .85rem;
+            font-weight: 600;
+        }
     }
+}
 
-    @media (min-width: 1024px) {
+@media (min-width: 1024px) {
+    .hookFormResponsiveByMariePierreLessard {
         fieldset {
             display: flex;
             flex-direction: row;

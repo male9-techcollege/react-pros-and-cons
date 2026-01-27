@@ -2,10 +2,21 @@
 @use "../../styles/colors.module.scss" as *;
 
 .viewerByMariePierreLessard {
-    background-color: $clr-dark-grey;
+    /* Change made in theme-switching-button assignment: 
+    The trick to make the inheritance of the background colour work (to make the switch from dark to light mode
+    and vice versa work in the modal) consists in making sure that each generation inherits the background colour.
+    Indeed, the inheritance isn't from ancestor to all descendants. It is strictly from parent to child. 
+    I found the explanation at:
+    https://stackoverflow.com/questions/19616629/css-inherit-for-unknown-background-color-is-actually-transparent
+
+    See the CSS declarations for the styling of each generation between :root and the modal's viewer element (a section)
+    in both light and dark mode in index.scss. 
+    */
+    background-color: inherit;
     box-shadow: 0px 0px 20px $clr-dark-grey;
     padding: 2em;
 
+    /* #region Notes about picture that could not fit inside of its parent in spite of using object-fit: cover or contain */
     /* I had a hard time getting the image to fit inside of its container in spite of using object-fit: contain;
         with all images (see file App.scss). I also tried object-fit: cover; to no avail.
         The fact that this is a modal requires me to use additional properties than the usual to deal with the large picture. 
@@ -40,6 +51,7 @@
         but it is weird that overflow: hidden; needs to be explicitely declared in some cases since object-fit: cover; 
         is supposed to hide the overflow on its own.
         */
+        /* #endregion Notes about picture that could not fit inside of its parent in spite of using object-fit: cover or contain */
     overflow: scroll;
     position: fixed;
     top: 50%;
@@ -54,6 +66,12 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr;
+
+    /* Change made in theme-switching-button assignment:
+    This overrides some of the global button styling in index.scss. */
+    button {
+        border: 2px solid $clr-dark-grey;
+    }
 
     img {
         justify-self: center;

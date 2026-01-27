@@ -94,6 +94,10 @@ of the whole navigation bar:
                 display: block;
             }
         }
+
+        li:last-of-type .btnForMenuItemByMariePierreLessard:hover {
+            background-color: $clr-accent;
+        }
     }
     
     @media (min-width: 768px) {

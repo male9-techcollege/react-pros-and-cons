@@ -49,7 +49,7 @@ export const MainNavByMariePierreLessard = ({ setModalIsOpenByMariePierreLessard
     // #endregion
     /* Maybe TO DO: 
     add a burger menu button with a different component (there is styling for buttons in App.scss and main-nav.module.scss):
-    <button type={button} className={btn}>CLICK HERE. TO DO: import icon or use HTML entity or CSS burger-menu icon</button>
+    <button type={button} className={btn}>CLICK HERE, TO DO: import icon or use HTML entity or CSS burger-menu icon</button>
     Sources for hamburger-menu icons that don't require importation or a file:
     - CSS: https://www.w3schools.com/howto/howto_css_menu_icon.asp
     - HTML entity &#9776; : https://www.w3schools.com/howto/howto_js_responsive_navbar_dropdown.asp
@@ -88,7 +88,7 @@ export const MainNavByMariePierreLessard = ({ setModalIsOpenByMariePierreLessard
                         <ul className={mainnavstyle.submenuByMariePierreLessard}>
                             <li><a href="#greetingInput">Med startværdi, kontrolleret input og nulstillingsknap</a></li>
                             <li><a href="#clickCounter">Med startværdi, tællingsfunktion og nulstillingsknap</a></li>
-                            <li><a href="javascript:void(0)">Link 3 -- Lorem ipsum dolor sit amet </a></li>
+                            <li><a href="#colourTheme">Med knapper, som skifter mellem mørk og lys tilstand</a></li>
                         </ul>
                     </button>
                 </li>

@@ -131,7 +131,7 @@ export const ImgComponentByMariePierreLessard = (
 
 It is also always possible to create additional interfaces that extend a basic interface. This is done:
 1) for instance thanks to a spread operator; see:
-https://stackoverflow.com/questions/43621934/typescript-interface-with-spread-members (TO DO probably save that page)
+https://stackoverflow.com/questions/43621934/typescript-interface-with-spread-members 
 2) or, as Kasper said and as my solution shows, by extending the native HTML attributes as it is explained in this source:
 "What happens if we want this to be a password input? Hide the value? Have a minimum length? To be required?
 Do we have to add all the relevant HTML attributes for our input to CustomInputProps?

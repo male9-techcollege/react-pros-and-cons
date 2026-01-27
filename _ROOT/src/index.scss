@@ -1,4 +1,6 @@
 /* This is based on the style sheets for global styles that were created by Vite. */
+/* Source for way to fold regions in .jsx files: https://stackoverflow.com/questions/58882591/region-for-jsx */
+// #region .scss versus .module.scss:
 /* ABOUT .scss versus .module.scss: 
 Interestingly, my tests in this project and another project showed the following: 
 - If I rename this global style sheet something.module.scss, I lose some (but not all) of the styling. 
@@ -6,7 +8,7 @@ Interestingly, my tests in this project and another project showed the following
 - It is possible to import a style sheet named something.scss (not something.module.scss) in App.tsx and main.tsx. 
   However, the teacher said that it would not work (or is not supposed to work) in the files where the components are defined.
   I changed the extension from .css to .scss because I @used variables in here.
-TO DO: ask why  
+Maybe TO DO: ask why
 The following is an old source about the deprecated create-react-app, which we are not using, but this is probably the answer: 
 "By default, create-react-app 2.0.0 treats any file that follows the *.module.scss pattern as modular 
 and any other *.scss files as global."
@@ -41,6 +43,7 @@ https://medium.com/@UReyesMeUp/using-sass-variables-in-your-react-components-e38
 Note: since we don't need to use :export, I am thinking that this source is either too old (2019) 
 or based on another tech stack than the one we are using. 
 */
+// #endregion .scss versus .module.scss:
 
 /* I opted for not using Tailwind because it implements styling over which I have no control on top of my SCSS styling.
 More work for nothing! */
@@ -55,17 +58,23 @@ does disappear (see DevTools, Elements tab, and then body styling under "user ag
 }
 */
 
-/* Maybe TO DO: add a button to switch colour theme (this is made possible by CSS in the old index.css, 
-which reorganised and edited below). */
-
 :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
 
-    /* color-scheme: light dark; */
+    /* The CSS declaration color-scheme: light dark; 
+    is used to change the colour scheme based on user preferences, set in browser or device settings. 
+    It is not part of how the toggle button works. 
+    Source: 
+    https://medium.com/@dimterion/css-light-dark-prefers-color-scheme-js-theme-toggle-db66e2a00be0
+    
+    I am still hiding it because if I activate that function, it overrides some of my styling (at least the text colour
+    of buttons).
+    color-scheme: light dark; 
+    */
     color: $clr-white;
-    background-color: $clr-dark-grey; 
+    background-color: $clr-dark-grey;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -76,9 +85,13 @@ which reorganised and edited below). */
     font-size: 18px;
 }
 
+:root body>div {
+    color: $clr-white;
+    background-color: $clr-dark-grey;
+}
+
 /* #root is a div in the index.html file 
 IMPORTANT: #root and :root are not the same element!
-TO DO:
 Known facts: 
 *    #root (<div id="root" ></div> in the .html file) is the parent of <App />
 *    According to DevTools, :root is the html element since the styling (e.g. font-size: 18px; ) is listed 
@@ -87,9 +100,12 @@ Known facts:
       which creates a root element with: 
       createRoot(document.getElementById('root')!).render();
       So how can the styling apply to an ancestor of #root?
-Q to teacher to check:
-is :root the component <App />, the parent of <App /> (#root) or the html element?
-Probable A: the latter. But why? 
+Q:
+Is :root the component <App />, the parent of <App /> (#root) or the html element?
+A:
+I am guessing that the transpiler makes the index.scss file the main SCSS file for the entire page, 
+even though it is not imported with a link element in index.html at the development stage. The program must be importing 
+the "index" style sheet into the HTML file, perhaps at build time. It is possible to add elements in the head element with JS.
 */
 #rootByMariePierreLessard {
     /* A little styling from the file index.css remains,
@@ -120,37 +136,67 @@ a:hover {
     text-decoration: underline;
 }
 
+/* This applies to nav and modal buttons, although some of it is overridden. */
 button {
     border: 1px solid transparent;
+    transition: border-color 0.25s;
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
     background-color: $clr-white;
     cursor: pointer;
-    transition: border-color 0.25s;
+    align-content: center;
 }
 
 button:hover {
-    border-color: $clr-react-blue;
+    background-color: $clr-react-blue;
 }
 
 button:focus,
 button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+    outline-offset: 2px;
 }
 
+button:active {
+    background-color: $clr-vites-default-purple;
+}
+
+/* Research on the following media query.
+The styling of Vite's default project includes the following declarations for a light colour theme. I edited the values a bit.
+The default colour scheme, declared in the scope of the :root selector, is dark. This media query only works based on 
+user preferences set in the browser or device settings. It cannot be used to create a button to switch between the two 
+according to 
+https: //stackoverflow.com/questions/73155601/is-it-possible-to-trigger-css-prefers-color-scheme-in-js 
+As explained by the MDN page https: //developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme , 
+if the user sets a preference for the color scheme applied by the media query, then the media query is excuted. 
+This is NOT fully supported by all browsers.
+*/
 @media (prefers-color-scheme: light) {
     :root {
-        color: #213547;
+        color: $clr-dark-grey;
         background-color: $clr-white;
     }
 
     a:hover {
         color: $clr-vites-default-light-purple-lm;
     }
+}
 
-    button {
-        background-color: #f9f9f9;
+/* The following is a copy of the CSS declarations in the media query above.
+Its purpose is to allow for the toggling of the colour mode with a button (toggle switch). 
+
+.light body>div
+represents the #root element. It is necessary to give it the background colour of :root,
+or the modal does not inherit the background colour set by the colour-mode toggle switch/button. 
+*/
+.light,
+.light body > div {
+    color: $clr-dark-grey;
+    background-color: $clr-white;
+
+    a:hover {
+        color: $clr-vites-default-light-purple-lm;
     }
 }
